@@ -1,0 +1,59 @@
+The following is the output when I run my program and enter the string "ThisIsMyAssignmentNumberThree".
+
+
+Please enter a string without spaces to be compressed.
+ThisIsMyAssignmentNumberThree
+
+Frequency Table: 
+     T     -     2
+     h     -     2
+     i     -     2
+     s     -     4
+     I     -     1
+     s     -     4
+     M     -     1
+     y     -     1
+     A     -     1
+     s     -     4
+     s     -     4
+     i     -     2
+     g     -     1
+     n     -     2
+     m     -     2
+     e     -     4
+     n     -     2
+     t     -     1
+     N     -     1
+     u     -     1
+     m     -     2
+     b     -     1
+     e     -     4
+     r     -     2
+     T     -     2
+     h     -     2
+     r     -     2
+     e     -     4
+     e     -     4
+
+Encoding Table:
+    A    -     10000
+    I    -     10001
+    M    -     10110
+    N    -     10111
+    T    -     1001
+    b    -     10100
+    e    -     010
+    g    -     10101
+    h    -     1110
+    i    -     1111
+    m    -     1100
+    n    -     1101
+    r    -     000
+    s    -     011
+    t    -     00110
+    u    -     00111
+    y    -     0010
+
+The compressed output string is :  100111101111011100010111011000101000001101111111010111011100010110100110101110011111001010001000010011110000010010
+
+The decoded string is:  ThisIsMyAssignmentNumberThree

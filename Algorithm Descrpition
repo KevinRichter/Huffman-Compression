@@ -1,0 +1,33 @@
+The algorithm begins by taking some inputed string of text and calls a method to determine the frequency of each character 
+in that inputed string. The frequency table is actually an array of integers, where the index of the array represents the ascii 
+character value and the integer value at that index is the frequency that each character occurs. 
+
+After the frequency table is created, it will be passed to a method that will use it to create a binary tree. This method will take
+each character with a frequency > 0 and create an array of single nodes. Next, it will sort the nodes via a custom sort method using
+the frequency value in each node to sort from smallest to largest. Then, in a double while loop, the 2 smallest nodes are used as
+the children of a new root node that is created. That new root is assigned back to the zero index of the node array, and the interior 
+while loop will move all remaining nodes to the left one position to remove the node that was at index one. So, now both the children
+that were used to create the new node have been removed from the array and the newly created one has been inserted into it. Then, 
+the array needs to be sorted again before the next iteration of the loop.
+
+Now that the binary tree has been created, we can use it and a newly created String[] to call the encoding method. This method will 
+traverse the tree in a post order non-recursive fashion. The key to the way this is implemented is the addition of a Node variable 
+called parent and a boolean variable called visited to the Node class. This help us to go back to a root(parent) node and to know
+if a node has already been visited. A do-while loop is used to visit each node in a left, right, root order, with the exit condition
+being that the current.parent == null. The only node that should meet this requirement is the root node, since it has no parent.
+Meaning that this will also be that last node visited, which is what we want. The String[] is used much like the earlier array of
+integers for the frequency table. Each index of the String[] represents the ascii value that corresponds to the character value 
+contained in a leaf node. Every time a leaf node is encountered, a string of ones and zeros that represent the path taken from the 
+root to that leaf(zero being a left path, and one being a right path), are assigned to String[(int)char]. Thus, creating an encoding 
+table. This table is then printed out before the method returns to the caller. 
+
+This encoded table contained now in String[], is passed to a print method, along with the originally inputed string to generate the
+output string of ones and zeros that will represent the original text in ones and zeros. When an original character matches
+a character in the encoded table, the corresponding "1" and "0" string is appended to output. Once all original characters have been
+matched to the table, the output is printed to the screen and the output string is returned to the caller.
+
+Finally, to get the this output string decoded and back to it's original text, it along with the root node of the binary tree are
+passed to a decode method. It takes the original post order binary tree and the output string of ones and zeros and traverses the tree
+one node at a time until a leaf is found. The left child will be traveled to if a zero is encountered and the right child will be 
+traveled to if a one is encountered. Each time a leaf is discovered, the letter value of that node is appended to decodedStr and the 
+loop starts again from the root node and the next character in the output string. 
